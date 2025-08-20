@@ -27,9 +27,16 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Connect()
     {
-        PhotonNetwork.NickName = nickNameField.text;
+        if (nickNameField != null)
+        {
+            PhotonNetwork.NickName = nickNameField.text;
+        }
+        else
+        {
+            PhotonNetwork.NickName = "";
+        }
 
-        PhotonNetwork.ConnectUsingSettings(); // App ID 기반으로 접속
+            PhotonNetwork.ConnectUsingSettings(); // App ID 기반으로 접속
         Debug.Log("서버 접속");
     }
 
